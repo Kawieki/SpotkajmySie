@@ -1,0 +1,16 @@
+using System.Text.Json.Serialization;
+using Backend.Models.Enums;
+
+namespace Backend.DTOs.Users;
+
+public class UserDto
+{
+    public int Id { get; set; }
+    public string FirstName { get; set; } = null!;
+    public string LastName { get; set; } = null!;
+    public string Email { get; set; } = null!;
+    
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    public UserRole Role { get; set; } = UserRole.User;
+    public string? Description { get; set; }
+}
